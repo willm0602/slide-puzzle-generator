@@ -1,14 +1,15 @@
 import random, time, datetime, math, sys
 from tkinter import image_names
 import shuffler
-from image_prep import resize
-from slidepuzzlemaker import MakeSlidePuzzle
+from image_prep import prep
+from Slidepuzzle import SlidePuzzle
 import googleImgLoader
 
 IMAGE_PATH = "./assets/imageFile.png"
 SIZE = 256
 
 phrase = input('What image would you like to input for?\n')
+
 try:
     print('Obtaining image')
     googleImgLoader.writeFileImg(phrase,IMAGE_PATH)
@@ -17,11 +18,10 @@ except:
     sys.exit()
 print('Image Obtained')
 
-tiles = list(range(15))
-tiles.append(None)
-tiles = shuffler.shuffle(tiles,500)
+labels = True
 
-image = resize(IMAGE_PATH,256)
+image = prep(IMAGE_PATH,256,labels)
 
-MakeSlidePuzzle(tiles,image)
+puzzle = SlidePuzzle(image)
+puzzle.run()
 

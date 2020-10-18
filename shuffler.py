@@ -1,3 +1,6 @@
+#shuffles a list of numbers for a slide puzzle by
+#ensuring each "swap" only moves one column or row away from the empty space
+
 import random
 
 def swap(spots):
@@ -23,7 +26,3 @@ def shuffle(spots, n):
     for i in range(n):
         spots = swap(spots)
     return(spots)
-
-spots = list(range(15))
-spots.append(None)
-spots = shuffle(spots,100)
