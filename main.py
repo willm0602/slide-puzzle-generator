@@ -6,7 +6,7 @@ from Slidepuzzle import SlidePuzzle
 import googleImgLoader
 
 IMAGE_PATH = "./assets/imageFile.png"
-SIZE = 256
+SIZE = 512
 
 phrase = input('What image would you like to input for?\n')
 
@@ -24,4 +24,3 @@ image = prep(IMAGE_PATH,256,labels)
 
 puzzle = SlidePuzzle(image)
 puzzle.run()
-
